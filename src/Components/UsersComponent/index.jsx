@@ -1,5 +1,4 @@
 import ButtonComponent from "../ButtonComponent";
-import ModalComponent from "../ModalComponent";
 
 const UsersComponent = (props) => {
     const {
@@ -7,12 +6,10 @@ const UsersComponent = (props) => {
         username,
         phone,
         deleteUser,
-        website,
-        company,
-        email,
         id,
     } = props;
 
+    
     return (
         <div style={{
             border: '2px solid lightgrey',
@@ -27,13 +24,6 @@ const UsersComponent = (props) => {
                 btnStyle='buttonBlack'
                 disabled={false}
                 btnClick={() => deleteUser(id)}
-            />
-            <ModalComponent
-                name={name}
-                company={company}
-                website={website}
-                email={email}
-                id={id}
             />
         </div>
     )
