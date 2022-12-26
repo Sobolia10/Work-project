@@ -1,29 +1,36 @@
 import ButtonComponent from "../ButtonComponent";
+import ModalComponent from "../ModalComponent";
 
 const UsersComponent = (props) => {
     const {
-        name,
-        username,
-        phone,
+        user,
         deleteUser,
-        id,
+        addUserToFavorites,
     } = props;
 
-    
     return (
         <div style={{
             border: '2px solid lightgrey',
             padding: '15px', 
             marginTop: '5px'
         }}>
-            <h3>{ name }</h3>
-            <p>{ username }</p>
-            <p>{ phone }</p>
+            <h3>{ user.name }</h3>
+            <p>{ user.username }</p>
+            <p>{ user.phone }</p>
             <ButtonComponent
                 label='Delete'
                 btnStyle='buttonBlack'
                 disabled={false}
-                btnClick={() => deleteUser(id)}
+                btnClick={() => deleteUser(user.userid)}
+            />
+            <ModalComponent
+                user={user}
+            />
+            <ButtonComponent
+                label='Add to favorites'
+                btnStyle='buttonBlack'
+                disabled={false}
+                btnClick={() => addUserToFavorites(user)}
             />
         </div>
     )
